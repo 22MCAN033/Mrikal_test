@@ -1,13 +1,16 @@
 version: 0.0
 os: linux
 files:
-  - source: start.sh
-    destination: /home/ec2-user
-  - source: docker-compose.yml
-    destination: /home/ec2-user
+  - source: /
+    destination: /home/ec2-user/mern-app-cicd 
 
 hooks:
-  ApplicationStart:
-    - location: start.sh
+  BeforeInstall:
+    - location: mern-app-cicd /stop_containers.sh
+      timeout: 300
+      runas: root
+
+  AfterInstall:
+    - location: mern-app-cicd /start_containers.sh
       timeout: 300
       runas: root

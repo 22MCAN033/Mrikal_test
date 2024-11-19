@@ -32,4 +32,5 @@ artifacts:
   files:
     - appspec.yml
     - docker-compose.yml
-    - start.sh
+    - mern-app-cicd/start_containers.sh
+    - mern-app-cicd/stop_containers.sh
