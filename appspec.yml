@@ -6,11 +6,11 @@ files:
 
 hooks:
   BeforeInstall:
-    - location: mern-app-cicd /stop_containers.sh
+    - location: stop_containers.sh
       timeout: 300
       runas: root
 
   AfterInstall:
-    - location: mern-app-cicd /start_containers.sh
+    - location: start_containers.sh
       timeout: 300
-      runas: root
+      runas: ec2-user
