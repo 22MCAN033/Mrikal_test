@@ -7,8 +7,9 @@ export default function Create() {
         position: "",
         level: ""
     })
+    
     const navigate = useNavigate()
-
+     
     function updateForm(value) {
         setForm((prev) => {
             return { ...prev, ...value }

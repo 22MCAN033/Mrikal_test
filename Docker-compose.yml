@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    image: vaibhav188/backend:latest # Updated image name
+    container_name: backend
+    ports:
+      - "5000:5000" # Expose backend service
+    networks:
+      - frontend-backend-network # Custom network for communication with frontend
+
+  frontend:
+    image: vaibhav188/frontend:latest # Updated image name
+    container_name: frontend
+    ports:
+      - "3000:3000" # Expose frontend service
+    depends_on:
+      - backend # Ensure backend starts before frontend
+    networks:
+      - frontend-backend-network
+
+networks:
+  frontend-backend-network:
+    driver: bridge # Define the network driver
