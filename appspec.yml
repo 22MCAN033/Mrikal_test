@@ -2,11 +2,11 @@ version: 0.0
 os: linux
 files:
   - source: docker-compose.yml
-    destination: /home/ec2-user
+    destination: /home/ec2-user/
   - source: start_containers.sh
-    destination: /home/ec2-user
+    destination: /home/ec2-user/
   - source: stop_containers.sh
-    destination: /home/ec2-user
+    destination: /home/ec2-user/
 
 hooks:
   BeforeInstall:

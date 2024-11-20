@@ -2,5 +2,5 @@
 
 # Stop all running containers
 
-cd /home/ec2-user
+cd /home/ec2-user/
 docker-compose down
