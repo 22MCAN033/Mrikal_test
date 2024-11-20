@@ -14,7 +14,7 @@ hooks:
       timeout: 300
       runas: root
 
-  AfterInstall:
+  ApplicationStart:
     - location: start_containers.sh
       timeout: 300
       runas: root
