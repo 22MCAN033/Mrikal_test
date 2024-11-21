@@ -2,7 +2,7 @@ version: 0.0
 os: linux
 files:
   - source: docker-compose.yml
-    destination: /home/ec2-user/
+    destination: /home/ec2-user/docker-compose.yml
     overwrite: true   # Add this line to overwrite the existing file
   - source: start_containers.sh
     destination: /home/ec2-user/
