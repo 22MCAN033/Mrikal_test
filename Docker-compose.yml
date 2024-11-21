@@ -1,3 +1,27 @@
+# version: '3'
+# services:
+#   backend:
+#     image: vaibhav188/backend:latest # Updated image name
+#     container_name: backend
+#     ports:
+#       - "5000:5000" # Expose backend service
+#     networks:
+#       - frontend-backend-network # Custom network for communication with frontend
+
+#   frontend:
+#     image: vaibhav188/frontend:latest # Updated image name
+#     container_name: frontend
+#     ports:
+#       - "3000:3000" # Expose frontend service
+#     depends_on:
+#       - backend # Ensure backend starts before frontend
+#     networks:
+#       - frontend-backend-network
+
+# networks:
+#   frontend-backend-network:
+#     driver: bridge # Define the network driver
+
 version: '3'
 services:
   backend:
@@ -7,6 +31,8 @@ services:
       - "5000:5000" # Expose backend service
     networks:
       - frontend-backend-network # Custom network for communication with frontend
+    environment:
+      - ATLAS_URI="mongodb+srv://vpraw7849:vzAJ6djKXjlLH2zL@cluster-mern-deploy.wo7ak.mongodb.net/?retryWrites=true&w=majority" # Replace with your MongoDB connection URL
 
   frontend:
     image: vaibhav188/frontend:latest # Updated image name
