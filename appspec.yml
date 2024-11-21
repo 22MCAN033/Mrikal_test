@@ -3,10 +3,13 @@ os: linux
 files:
   - source: docker-compose.yml
     destination: /home/ec2-user/
+    overwrite: true   # Add this line to overwrite the existing file
   - source: start_containers.sh
     destination: /home/ec2-user/
+    overwrite: true   # Add this line to overwrite the existing file
   - source: stop_containers.sh
     destination: /home/ec2-user/
+    overwrite: true   # Add this line to overwrite the existing file
 
 hooks:
   BeforeInstall:
