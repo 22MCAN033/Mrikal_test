@@ -8,15 +8,15 @@ services:
     networks:
       - frontend-backend-network # Custom network for communication with frontend
 
-  frontend:
-    image: vaibhav188/frontend:latest # Updated image name
-    container_name: frontend
-    ports:
-      - "3000:3000" # Expose frontend service
-    depends_on:
-      - backend # Ensure backend starts before frontend
-    networks:
-      - frontend-backend-network
+  # frontend:
+  #   image: vaibhav188/frontend:latest # Updated image name
+  #   container_name: frontend
+  #   ports:
+  #     - "3000:3000" # Expose frontend service
+  #   depends_on:
+  #     - backend # Ensure backend starts before frontend
+  #   networks:
+  #     - frontend-backend-network
 
 networks:
   frontend-backend-network:
