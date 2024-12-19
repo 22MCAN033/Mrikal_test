@@ -18,6 +18,7 @@ phases:
       - docker tag vaibhav188/frontend:$CODEBUILD_BUILD_NUMBER vaibhav188/frontend:latest
       - docker images
       - docker push vaibhav188/frontend:$CODEBUILD_BUILD_NUMBER
+      - docker push vaibhav188/frontend:latest
       
 
       # Build and push the backend image
@@ -26,6 +27,7 @@ phases:
       - docker tag vaibhav188/backend:$CODEBUILD_BUILD_NUMBER vaibhav188/backend:latest
       - docker images
       - docker push vaibhav188/backend:$CODEBUILD_BUILD_NUMBER
+      - docker push vaibhav188/backend:latest
     
 
 artifacts:
