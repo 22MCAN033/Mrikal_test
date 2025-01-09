@@ -35,6 +35,6 @@ artifacts:
     - appspec.yml
     - docker-compose.yml
     - start_containers.sh
-    # - stop_containers.sh
+    
   name: Artifacts
   discard-paths: yes
