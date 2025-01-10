@@ -1,4 +1,5 @@
 version: '3'
+
 services:
   backend:
     image: vaibhav188/backend:latest # Updated image name
@@ -8,7 +9,7 @@ services:
     networks:
       - frontend-backend-network # Custom network for communication with frontend
     environment:
-      - ATLAS_URI="mongodb+srv://vpraw7849:vzAJ6djKXjlLH2zL@cluster-mern-deploy.wo7ak.mongodb.net/?retryWrites=true&w=majority" # Replace with your MongoDB connection URL
+      - ATLAS_URI=${ATLAS_URI} # Use environment variable for sensitive data
 
   frontend:
     image: vaibhav188/frontend:latest # Updated image name
