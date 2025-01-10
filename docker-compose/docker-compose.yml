@@ -17,7 +17,7 @@ services:
     ports:
       - "3000:3000" # Expose frontend service
     depends_on:
-      - backend # Ensure backend starts before frontend
+      - backend # Ensure backend starts before fronten
     networks:
       - frontend-backend-network
 
