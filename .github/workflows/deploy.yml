@@ -3,7 +3,7 @@ name: Build and Deploy to EC2
 on:
   push:
     branches:
-      - main # Trigger on pushes to the main 
+      - main # Trigger on pushes to the main branch
 
 jobs:
   build:
@@ -13,6 +13,7 @@ jobs:
     env:
       DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
       DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+      ATLAS_URI: ${{ secrets.ATLAS_URI }}  # Adding ATLAS_URI as an environment variable
 
     steps:
       - name: Checkout repository
@@ -41,6 +42,7 @@ jobs:
       EC2_HOST: ${{ secrets.EC2_HOST }}
       EC2_USER: ${{ secrets.EC2_USER }}
       EC2_KEY: ${{ secrets.EC2_KEY }}
+      ATLAS_URI: ${{ secrets.ATLAS_URI }}  # Adding ATLAS_URI to the deploy job
 
     steps:
       - name: Set up SSH
@@ -54,6 +56,8 @@ jobs:
         run: |
           ssh -o StrictHostKeyChecking=no ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
           cd /home/ubuntu
+          # Set ATLAS_URI for the backend service
+          echo "ATLAS_URI=${{ secrets.ATLAS_URI }}" >> .env  # Writing the ATLAS_URI to an environment file
           docker-compose down || true
           docker-compose pull
           docker-compose up -d

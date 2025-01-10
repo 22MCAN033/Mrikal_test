@@ -9,7 +9,7 @@ services:
     networks:
       - frontend-backend-network # Custom network for communication with frontend
     environment:
-      - ATLAS_URI=${{ secrets.ATLAS_URI }} # Use environment variable for sensitive data
+      - ATLAS_URI=${ATLAS_URI} # Use environment variable for sensitive data
 
   frontend:
     image: vaibhav188/frontend:latest # Updated image name
