@@ -28,11 +28,11 @@ jobs:
       - name: Build and push Docker images
         run: |
           # Build and push the frontend image
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest ./frontend
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/frontend:latest ./client
           docker push ${{ secrets.DOCKER_USERNAME }}/frontend:latest
           
           # Build and push the backend image
-          docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:latest ./backend
+          docker build -t ${{ secrets.DOCKER_USERNAME }}/backend:latest ./server
           docker push ${{ secrets.DOCKER_USERNAME }}/backend:latest
 
       - name: Set up SSH
